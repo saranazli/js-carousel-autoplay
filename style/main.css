@@ -59,6 +59,7 @@ button.btn.bottom{
 /*bonus*/
 
 .small-carousel{
+  background-color: black;
   position: absolute;
   top: 0;
   right: 20px;
@@ -71,6 +72,7 @@ button.btn.bottom{
 .conteiner-small-img{
   height: 20%;
   width: 100%;
+  opacity: 0.5;
 }
 
 .small-img{
@@ -80,5 +82,8 @@ button.btn.bottom{
 }
 
 .active{
-  opacity: 0.5;
+  height: 20%;
+  width: 100%;
+  opacity: 1;
+  border: solid white;
 }

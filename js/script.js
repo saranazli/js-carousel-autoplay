@@ -37,6 +37,7 @@ console.log(btnDown, btnUp);
 let counter = 0 ;
 
 imgCollection[0].classList.remove('none');
+imgSmall[0].classList.add('active');
 
 btnUp.classList.add('none');
 
@@ -46,7 +47,7 @@ btnDown.addEventListener('click', pre);
 
 // AUTO 
 
-slider.addEventListener('mouseover', ()=> goAuto= false);
+slider.addEventListener('mouseenter', ()=> goAuto= false);
 slider.addEventListener('mouseleave', ()=> goAuto= true);
 
 setInterval(()=> {
@@ -59,9 +60,17 @@ setInterval(()=> {
 
 function next(){
 
-  imgCollection[counter++].classList.add('none');
+  imgCollection[counter].classList.add('none');
+  imgSmall[counter].classList.remove('active');
+  
+  counter++
+
+  if (counter === carouselImgs.length){
+    counter = 0;
+  }
 
   imgCollection[counter].classList.remove('none');
+  imgSmall[counter].classList.add('active');
 
   if(counter === imgCollection.length - 1 ){
     btnDown.classList.add('none');
@@ -73,9 +82,13 @@ function next(){
 
 function pre(){
 
-  imgCollection[counter--].classList.add('none');
+  imgCollection[counter].classList.add('none');
+  imgSmall[counter].classList.remove('active');
+  
+  counter--
 
   imgCollection[counter].classList.remove('none');
+  imgSmall[counter].classList.add('active');
 
   if(counter === 0){
     btnUp.classList.add('none');
