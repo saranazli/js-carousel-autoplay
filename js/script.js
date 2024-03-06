@@ -7,13 +7,11 @@ const carouselImgs = [
   './img/05.webp'
 ];
 
-console.log(carouselImgs);
-
 const carousel = document.querySelector('.carousel');
-
 const smallCarousel = document.querySelector('.small-carousel');
 
-console.log(carousel);
+const slider = document.querySelector('.conteiner');
+let startAuto = true;
 
 for(i = 0; i < carouselImgs.length; i++){
 
@@ -48,7 +46,12 @@ btnDown.addEventListener('click', pre);
 
 // AUTO 
 
-setInterval(next, 1000)
+slider.addEventListener('mouseover', ()=> goAuto= false);
+slider.addEventListener('mouseleave', ()=> goAuto= true);
+
+setInterval(()=> {
+  if (goAuto) next();
+}, 1000);
 
 
 // FUNCTION 
